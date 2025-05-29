@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Marketing SOP - Complete Visual Framework</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            color: #2d3748;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .stat {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat h3 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .nav-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+        
+        .nav-card.pre-purchase {
+            border-left: 5px solid #3182ce;
+        }
+        
+        .nav-card.abandonment {
+            border-left: 5px solid #ed8936;
+        }
+        
+        .nav-card.retention {
+            border-left: 5px solid #38a169;
+        }
+        
+        .nav-card.utility {
+            border-left: 5px solid #805ad5;
+        }
+        
+        .nav-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-card p {
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+        
+        .nav-card .flows {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .flow-tag {
+            background: #edf2f7;
+            color: #2d3748;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .section {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2d3748;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .flow-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .flow-card {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .flow-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .flow-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .flow-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        .flow-duration {
+            background: #667eea;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .flow-description {
+            color: #4a5568;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .email-sequence {
+            margin-top: 15px;
+        }
+        
+        .email-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .email-number {
+            background: #667eea;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .email-timing {
+            color: #805ad5;
+            font-weight: 500;
+            min-width: 80px;
+        }
+        
+        .email-content {
+            flex: 1;
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+        
+        .metrics {
+            margin-top: 15px;
+            padding: 15px;
+            background: #e6fffa;
+            border-radius: 8px;
+            border-left: 4px solid #38a169;
+        }
+        
+        .metrics h4 {
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+        
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+        
+        .metric-item {
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #38a169;
+        }
+        
+        .metric-label {
+            font-size: 0.8rem;
+            color: #4a5568;
+        }
+        
+        .back-button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: #5a67d8;
+            transform: translateY(-1px);
+        }
+        
+        .implementation {
+            margin-top: 30px;
+            background: #fef5e7;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #ed8936;
+        }
+        
+        .phase {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .phase h4 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .phase-number {
+            background: #ed8936;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .tech-req {
+            margin-top: 20px;
+            background: #e6f3ff;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #3182ce;
+        }
+        
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .tool-item {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .tool-name {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+        
+        .tool-purpose {
+            font-size: 0.8rem;
+            color: #4a5568;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .flow-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📧 Email Marketing SOP 2025</h1>
+            <p>Complete E-commerce Automation Framework</p>
+            <div class="stats">
+                <div class="stat">
+                    <h3>15</h3>
+                    <p>Core Flows</p>
+                </div>
+                <div class="stat">
+                    <h3>35%+</h3>
+                    <p>Automated Revenue</p>
+                </div>
+                <div class="stat">
+                    <h3>4000%+</h3>
+                    <p>Email ROI</p>
+                </div>
+                <div class="stat">
+                    <h3>30%+</h3>
+                    <p>LTV Increase</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="navigation" class="nav-grid">
+            <div class="nav-card pre-purchase" onclick="showSection('pre-purchase')">
+                <h3>🎁 Pre-Purchase Flows</h3>
+                <p>Lead nurturing and welcome sequences to convert new subscribers</p>
+                <div class="flows">
+                    <span class="flow-tag">Welcome Series</span>
+                    <span class="flow-tag">Site Abandonment</span>
+                    <span class="flow-tag">Quiz Results</span>
+                </div>
+            </div>
+
+            <div class="nav-card abandonment" onclick="showSection('abandonment')">
+                <h3>🛒 Abandonment Flows</h3>
+                <p>Recovery sequences for cart, checkout, and browse abandonment</p>
+                <div class="flows">
+                    <span class="flow-tag">Browse Abandonment</span>
+                    <span class="flow-tag">Cart Abandonment</span>
+                    <span class="flow-tag">Checkout Abandonment</span>
+                </div>
+            </div>
+
+            <div class="nav-card retention" onclick="showSection('retention')">
+                <h3>🔄 Retention Flows</h3>
+                <p>Customer lifecycle management and loyalty building</p>
+                <div class="flows">
+                    <span class="flow-tag">Post-Purchase</span>
+                    <span class="flow-tag">Winback</span>
+                    <span class="flow-tag">VIP</span>
+                    <span class="flow-tag">Replenishment</span>
+                </div>
+            </div>
+
+            <div class="nav-card utility" onclick="showSection('utility')">
+                <h3>🛠️ Utility Flows</h3>
+                <p>Supporting automation for reviews, anniversaries, and list hygiene</p>
+                <div class="flows">
+                    <span class="flow-tag">Review Request</span>
+                    <span class="flow-tag">Back-in-Stock</span>
+                    <span class="flow-tag">Sunset</span>
+                    <span class="flow-tag">Anniversary</span>
+                </div>
+            </div>
+
+            <div class="nav-card" onclick="showSection('implementation')">
+                <h3>🚀 Implementation</h3>
+                <p>4-phase rollout plan with timelines and priorities</p>
+                <div class="flows">
+                    <span class="flow-tag">Phase 1: Foundation</span>
+                    <span class="flow-tag">Phase 2: Intelligence</span>
+                    <span class="flow-tag">Phase 3: Retention</span>
+                    <span class="flow-tag">Phase 4: Innovation</span>
+                </div>
+            </div>
+
+            <div class="nav-card" onclick="showSection('technical')">
+                <h3>⚙️ Technical Setup</h3>
+                <p>Platform requirements, integrations, and AI features</p>
+                <div class="flows">
+                    <span class="flow-tag">Klaviyo Setup</span>
+                    <span class="flow-tag">AI Integration</span>
+                    <span class="flow-tag">Analytics</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pre-Purchase Flows Section -->
+        <div id="pre-purchase" class="section">
+            <button class="back-button" onclick="showNavigation()">← Back to Overview</button>
+            <h2>🎁 Pre-Purchase Flows</h2>
+            
+            <div class="flow-grid">
+                <div class="flow-card">
+                    <div class="flow-header">
+                        <div class="flow-title">Welcome Flow Series</div>
+                        <div class="flow-duration">8 emails / 14 days</div>
+                    </div>
+                    <div class="flow-description">
+                        First interaction with new subscribers. Multiple tailored series based on signup source.
+                    </div>
+                    
+                    <div class="email-sequence">
+                        <div class="email-item">
+                            <div class="email-number">1</div>
+                            <div class="email-timing">Immediate</div>
+                            <div class="email-content">Strong intro + discount delivery + bestsellers</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">2</div>
+                            <div class="email-timing">1 day</div>
+                            <div class="email-content">Brand background + founding story + face to name</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">3</div>
+                            <div class="email-timing">2 days</div>
+                            <div class="email-content">Bestseller promotion + detailed explanation</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">4</div>
+                            <div class="email-timing">2 days</div>
+                            <div class="email-content">Urgency + risk reversals + testimonials</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">5</div>
+                            <div class="email-timing">2 days</div>
+                            <div class="email-content">Competitor comparison + brand USPs</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">6</div>
+                            <div class="email-timing">2 days</div>
+                            <div class="email-content">Heavy social proof + media features</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">7</div>
+                            <div class="email-timing">2 days</div>
+                            <div class="email-content">Last chance + extreme urgency</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">8</div>
+                            <div class="email-timing">2 days</div>
+                            <div class="email-content">Personal founder note + support offer</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics">
+                        <h4>Performance Targets</h4>
+                        <div class="metric-grid">
+                            <div class="metric-item">
+                                <div class="metric-value">60%</div>
+                                <div class="metric-label">Open Rate</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">15%</div>
+                                <div class="metric-label">Click Rate</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">8%</div>
+                                <div class="metric-label">Conversion</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">$3.00</div>
+                                <div class="metric-label">RPR</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-header">
+                        <div class="flow-title">Site Abandonment Flow</div>
+                        <div class="flow-duration">3 emails / 3 days</div>
+                    </div>
+                    <div class="flow-description">
+                        Re-engage visitors who browsed but didn't view specific products. Three A/B/C variations.
+                    </div>
+                    
+                    <div class="email-sequence">
+                        <div class="email-item">
+                            <div class="email-number">1A</div>
+                            <div class="email-timing">2 hours</div>
+                            <div class="email-content">Interactive quiz style with product finder</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">1B</div>
+                            <div class="email-timing">2 hours</div>
+                            <div class="email-content">Collection guide with interactive navigator</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">1C</div>
+                            <div class="email-timing">2 hours</div>
+                            <div class="email-content">Bestseller showcase with social proof</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">2</div>
+                            <div class="email-timing">1 day</div>
+                            <div class="email-content">Social proof focus + customer reviews</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">3</div>
+                            <div class="email-timing">1 day</div>
+                            <div class="email-content">Last chance + exit survey + alternatives</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics">
+                        <h4>Performance Targets</h4>
+                        <div class="metric-grid">
+                            <div class="metric-item">
+                                <div class="metric-value">25%</div>
+                                <div class="metric-label">Open Rate</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">2%</div>
+                                <div class="metric-label">Click Rate</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">1%</div>
+                                <div class="metric-label">Conversion</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-header">
+                        <div class="flow-title">AI Quiz Result Flow</div>
+                        <div class="flow-duration">5 emails / 10 days</div>
+                    </div>
+                    <div class="flow-description">
+                        Personalized follow-up for quiz completions with AI-powered recommendations.
+                    </div>
+                    
+                    <div class="email-sequence">
+                        <div class="email-item">
+                            <div class="email-number">1</div>
+                            <div class="email-timing">Immediate</div>
+                            <div class="email-content">Interactive quiz results + personalized recommendations</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">2</div>
+                            <div class="email-timing">2 days</div>
+                            <div class="email-content">How to style/use recommendations + video tutorials</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">3</div>
+                            <div class="email-timing">3 days</div>
+                            <div class="email-content">Alternative recommendations + bundle suggestions</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">4</div>
+                            <div class="email-timing">3 days</div>
+                            <div class="email-content">UGC from similar quiz results + social proof</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">5</div>
+                            <div class="email-timing">2 days</div>
+                            <div class="email-content">Final quiz-exclusive offer + urgency</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics">
+                        <h4>Performance Targets</h4>
+                        <div class="metric-grid">
+                            <div class="metric-item">
+                                <div class="metric-value">40%</div>
+                                <div class="metric-label">Conversion</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">45%</div>
+                                <div class="metric-label">Open Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Abandonment Flows Section -->
+        <div id="abandonment" class="section">
+            <button class="back-button" onclick="showNavigation()">← Back to Overview</button>
+            <h2>🛒 Abandonment Flows</h2>
+            
+            <div class="flow-grid">
+                <div class="flow-card">
+                    <div class="flow-header">
+                        <div class="flow-title">Browse Abandonment</div>
+                        <div class="flow-duration">4 emails / 5 days</div>
+                    </div>
+                    <div class="flow-description">
+                        Target users who viewed specific products but didn't add to cart. AI-enhanced personalization.
+                    </div>
+                    
+                    <div class="email-sequence">
+                        <div class="email-item">
+                            <div class="email-number">1</div>
+                            <div class="email-timing">2 hours</div>
+                            <div class="email-content">Dynamic product video + personalized messaging</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">2</div>
+                            <div class="email-timing">1 day</div>
+                            <div class="email-content">360° product view + specific testimonials</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">3</div>
+                            <div class="email-timing">1 day</div>
+                            <div class="email-content">Styling inspiration + UGC + tutorials</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">4</div>
+                            <div class="email-timing">2 days</div>
+                            <div class="email-content">Stock urgency + alternatives + price trends</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics">
+                        <h4>Performance Targets</h4>
+                        <div class="metric-grid">
+                            <div class="metric-item">
+                                <div class="metric-value">30%</div>
+                                <div class="metric-label">Open Rate</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">5%</div>
+                                <div class="metric-label">Click Rate</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">3%</div>
+                                <div class="metric-label">Conversion</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-header">
+                        <div class="flow-title">Cart Abandonment</div>
+                        <div class="flow-duration">8 emails / 12 days</div>
+                    </div>
+                    <div class="flow-description">
+                        Ultimate recovery sequence with conditional splits and advanced personalization.
+                    </div>
+                    
+                    <div class="email-sequence">
+                        <div class="email-item">
+                            <div class="email-number">1</div>
+                            <div class="email-timing">30 min</div>
+                            <div class="email-content">Interactive cart summary + one-click checkout</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">2</div>
+                            <div class="email-timing">1 day</div>
+                            <div class="email-content">Product care videos + testimonials</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">3</div>
+                            <div class="email-timing">1 day</div>
+                            <div class="email-content">Category-specific objection handling</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">4</div>
+                            <div class="email-timing">1 day</div>
+                            <div class="email-content">Customer testimonial videos</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">5</div>
+                            <div class="email-timing">2 days</div>
+                            <div class="email-content">Real-time inventory countdown + urgency</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">6</div>
+                            <div class="email-timing">3 days</div>
+                            <div class="email-content">Split: Previous customers vs New customers</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">7</div>
+                            <div class="email-timing">1 day</div>
+                            <div class="email-content">Flash discount (new customers only)</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">8</div>
+                            <div class="email-timing">2 days</div>
+                            <div class="email-content">Personal text from customer success</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics">
+                        <h4>Performance Targets</h4>
+                        <div class="metric-grid">
+                            <div class="metric-item">
+                                <div class="metric-value">4-6%</div>
+                                <div class="metric-label">Conversion</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">$4.00</div>
+                                <div class="metric-label">RPR</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-header">
+                        <div class="flow-title">Checkout Abandonment</div>
+                        <div class="flow-duration">8 emails / 12 days</div>
+                    </div>
+                    <div class="flow-description">
+                        Identical to cart abandonment but triggered at checkout initiation. Higher urgency focus.
+                    </div>
+                    
+                    <div class="email-sequence">
+                        <div class="email-item">
+                            <div class="email-number">1</div>
+                            <div class="email-timing">30 min</div>
+                            <div class="email-content">Payment issue detection + quick resolution</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">2</div>
+                            <div class="email-timing">1 day</div>
+                            <div class="email-content">Security reassurance + trust badges</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">3</div>
+                            <div class="email-timing">1 day</div>
+                            <div class="email-content">Shipping options + delivery timeline</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">4</div>
+                            <div class="email-timing">1 day</div>
+                            <div class="email-content">Payment method alternatives</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">5</div>
+                            <div class="email-timing">2 days</div>
+                            <div class="email-content">Express checkout + mobile optimization</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">6</div>
+                            <div class="email-timing">3 days</div>
+                            <div class="email-content">Customer support intervention</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">7</div>
+                            <div class="email-timing">1 day</div>
+                            <div class="email-content">Limited-time assistance offer</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">8</div>
+                            <div class="email-timing">2 days</div>
+                            <div class="email-content">Final technical support offer</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics">
+                        <h4>Performance Targets</h4>
+                        <div class="metric-grid">
+                            <div class="metric-item">
+                                <div class="metric-value">5-7%</div>
+                                <div class="metric-label">Conversion</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">$4.50</div>
+                                <div class="metric-label">RPR</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Retention Flows Section -->
+        <div id="retention" class="section">
+            <button class="back-button" onclick="showNavigation()">← Back to Overview</button>
+            <h2>🔄 Retention Flows</h2>
+            
+            <div class="flow-grid">
+                <div class="flow-card">
+                    <div class="flow-header">
+                        <div class="flow-title">Post-Purchase Flow</div>
+                        <div class="flow-duration">8 emails / 90 days</div>
+                    </div>
+                    <div class="flow-description">
+                        Complete customer lifecycle management with conditional paths based on customer history.
+                    </div>
+                    
+                    <div class="email-sequence">
+                        <div class="email-item">
+                            <div class="email-number">1</div>
+                            <div class="email-timing">30 min</div>
+                            <div class="email-content">Order confirmation + interactive tracking</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">2</div>
+                            <div class="email-timing">1 day</div>
+                            <div class="email-content">Split: First-time/Repeat/VIP welcome</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">3</div>
+                            <div class="email-timing">2-3 days</div>
+                            <div class="email-content">Shipping + unboxing preview</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">4</div>
+                            <div class="email-timing">Delivery</div>
+                            <div class="email-content">Delivery confirmation + setup guide</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">5</div>
+                            <div class="email-timing">3 days</div>
+                            <div class="email-content">Usage education + AR tools</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">6</div>
+                            <div class="email-timing">7 days</div>
+                            <div class="email-content">Satisfaction survey + photo reviews</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">7</div>
+                            <div class="email-timing">14 days</div>
+                            <div class="email-content">Cross-sell + AI recommendations</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">8</div>
+                            <div class="email-timing">30 days</div>
+                            <div class="email-content">Loyalty program + referral activation</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics">
+                        <h4>Performance Targets</h4>
+                        <div class="metric-grid">
+                            <div class="metric-item">
+                                <div class="metric-value">25%</div>
+                                <div class="metric-label">Repeat Purchase</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">$1.50</div>
+                                <div class="metric-label">RPR</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-header">
+                        <div class="flow-title">Winback Flow</div>
+                        <div class="flow-duration">5 emails / 21 days</div>
+                    </div>
+                    <div class="flow-description">
+                        Predictive re-engagement for 60+ day inactive customers with discount laddering.
+                    </div>
+                    
+                    <div class="email-sequence">
+                        <div class="email-item">
+                            <div class="email-number">1</div>
+                            <div class="email-timing">80 days</div>
+                            <div class="email-content">Personal "we miss you" video + new products</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">2</div>
+                            <div class="email-timing">3 days</div>
+                            <div class="email-content">Exclusive comeback discount + social proof</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">3</div>
+                            <div class="email-timing">5 days</div>
+                            <div class="email-content">Feedback request + improvement survey</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">4</div>
+                            <div class="email-timing">7 days</div>
+                            <div class="email-content">Enhanced discount + bundle deals</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">5</div>
+                            <div class="email-timing">6 days</div>
+                            <div class="email-content">Final farewell + frequency options</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics">
+                        <h4>Performance Targets</h4>
+                        <div class="metric-grid">
+                            <div class="metric-item">
+                                <div class="metric-value">8-12%</div>
+                                <div class="metric-label">Reactivation</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">$2.00</div>
+                                <div class="metric-label">RPR</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-header">
+                        <div class="flow-title">VIP Experience Flow</div>
+                        <div class="flow-duration">Ongoing lifecycle</div>
+                    </div>
+                    <div class="flow-description">
+                        Tiered customer experience for high-value customers with exclusive benefits.
+                    </div>
+                    
+                    <div class="email-sequence">
+                        <div class="email-item">
+                            <div class="email-number">1</div>
+                            <div class="email-timing">Immediate</div>
+                            <div class="email-content">Congratulations video + tier benefits</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">2</div>
+                            <div class="email-timing">2 days</div>
+                            <div class="email-content">Personal customer success manager intro</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">3</div>
+                            <div class="email-timing">Monthly</div>
+                            <div class="email-content">VIP exclusive sales (48h early access)</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">4</div>
+                            <div class="email-timing">Quarterly</div>
+                            <div class="email-content">Exclusive events + founder sessions</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">5</div>
+                            <div class="email-timing">Birthday</div>
+                            <div class="email-content">Personal video + exclusive gifts</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics">
+                        <h4>Performance Targets</h4>
+                        <div class="metric-grid">
+                            <div class="metric-item">
+                                <div class="metric-value">30%</div>
+                                <div class="metric-label">LTV Increase</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">$5.00</div>
+                                <div class="metric-label">RPR</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-header">
+                        <div class="flow-title">Replenishment Reminder</div>
+                        <div class="flow-duration">4 emails / 7 days</div>
+                    </div>
+                    <div class="flow-description">
+                        AI-powered consumption prediction for consumable products with "just-in-time" messaging.
+                    </div>
+                    
+                    <div class="email-sequence">
+                        <div class="email-item">
+                            <div class="email-number">1</div>
+                            <div class="email-timing">28 days</div>
+                            <div class="email-content">Consumption timeline + "running low?"</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">2</div>
+                            <div class="email-timing">3 days</div>
+                            <div class="email-content">Stock urgency + shipping timeline</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">3</div>
+                            <div class="email-timing">2 days</div>
+                            <div class="email-content">Benefits reminder + subscription offer</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">4</div>
+                            <div class="email-timing">2 days</div>
+                            <div class="email-content">Last chance + bulk discounts</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics">
+                        <h4>Performance Targets</h4>
+                        <div class="metric-grid">
+                            <div class="metric-item">
+                                <div class="metric-value">15%</div>
+                                <div class="metric-label">Reorder Rate</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">25%</div>
+                                <div class="metric-label">Subscription Convert</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Utility Flows Section -->
+        <div id="utility" class="section">
+            <button class="back-button" onclick="showNavigation()">← Back to Overview</button>
+            <h2>🛠️ Utility Flows</h2>
+            
+            <div class="flow-grid">
+                <div class="flow-card">
+                    <div class="flow-header">
+                        <div class="flow-title">Review Request Flow</div>
+                        <div class="flow-duration">2 emails / 7 days</div>
+                    </div>
+                    <div class="flow-description">
+                        Social proof generation with interactive star ratings and multi-platform integration.
+                    </div>
+                    
+                    <div class="email-sequence">
+                        <div class="email-item">
+                            <div class="email-number">1</div>
+                            <div class="email-timing">5-7 days</div>
+                            <div class="email-content">Interactive star rating + photo incentives</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">2</div>
+                            <div class="email-timing">4 days</div>
+                            <div class="email-content">"Better time?" + social media encouragement</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics">
+                        <h4>Performance Targets</h4>
+                        <div class="metric-grid">
+                            <div class="metric-item">
+                                <div class="metric-value">25%</div>
+                                <div class="metric-label">Review Rate</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">40%</div>
+                                <div class="metric-label">Photo Reviews</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-header">
+                        <div class="flow-title">Back-in-Stock Alert</div>
+                        <div class="flow-duration">3 emails / 5 days</div>
+                    </div>
+                    <div class="flow-description">
+                        Demand capture for waitlisted products with real-time inventory and urgency.
+                    </div>
+                    
+                    <div class="email-sequence">
+                        <div class="email-item">
+                            <div class="email-number">1</div>
+                            <div class="email-timing">Immediate</div>
+                            <div class="email-content">Real-time countdown + one-click purchase</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">2</div>
+                            <div class="email-timing">1 day</div>
+                            <div class="email-content">Social proof + availability updates</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">3</div>
+                            <div class="email-timing">3 days</div>
+                            <div class="email-content">Final warning + alternatives</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics">
+                        <h4>Performance Targets</h4>
+                        <div class="metric-grid">
+                            <div class="metric-item">
+                                <div class="metric-value">35%</div>
+                                <div class="metric-label">Conversion</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">60%</div>
+                                <div class="metric-label">Open Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-header">
+                        <div class="flow-title">Sunset Flow</div>
+                        <div class="flow-duration">2 emails / 10 days</div>
+                    </div>
+                    <div class="flow-description">
+                        List hygiene optimization with intelligent timing and preference options.
+                    </div>
+                    
+                    <div class="email-sequence">
+                        <div class="email-item">
+                            <div class="email-number">1</div>
+                            <div class="email-timing">Optimal time</div>
+                            <div class="email-content">Plain text concern + reply request</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">2</div>
+                            <div class="email-timing">10 days</div>
+                            <div class="email-content">Final farewell + preference center</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics">
+                        <h4>Performance Targets</h4>
+                        <div class="metric-grid">
+                            <div class="metric-item">
+                                <div class="metric-value">5%</div>
+                                <div class="metric-label">Re-engagement</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">95%</div>
+                                <div class="metric-label">Suppression Accuracy</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-header">
+                        <div class="flow-title">Anniversary Flow</div>
+                        <div class="flow-duration">3 emails / 7 days</div>
+                    </div>
+                    <div class="flow-description">
+                        Customer relationship celebration with nostalgic approach and exclusive benefits.
+                    </div>
+                    
+                    <div class="email-sequence">
+                        <div class="email-item">
+                            <div class="email-number">1</div>
+                            <div class="email-timing">365 days</div>
+                            <div class="email-content">Personalized video + purchase timeline</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">2</div>
+                            <div class="email-timing">2 days</div>
+                            <div class="email-content">Anniversary collection + missed products</div>
+                        </div>
+                        <div class="email-item">
+                            <div class="email-number">3</div>
+                            <div class="email-timing">4 days</div>
+                            <div class="email-content">Anniversary gift + loyalty milestones</div>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics">
+                        <h4>Performance Targets</h4>
+                        <div class="metric-grid">
+                            <div class="metric-item">
+                                <div class="metric-value">20%</div>
+                                <div class="metric-label">Engagement</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">8%</div>
+                                <div class="metric-label">Conversion</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Implementation Section -->
+        <div id="implementation" class="section">
+            <button class="back-button" onclick="showNavigation()">← Back to Overview</button>
+            <h2>🚀 Implementation Roadmap</h2>
+            
+            <div class="implementation">
+                <h3>4-Phase Implementation Strategy</h3>
+                
+                <div class="phase">
+                    <h4><span class="phase-number">1</span> Foundation (Weeks 1-4)</h4>
+                    <p><strong>Priority:</strong> Revenue-generating flows with immediate impact</p>
+                    <p><strong>Flows:</strong> Welcome Series (8 emails), Cart Abandonment (5 emails), Checkout Abandonment (duplicate), Basic Post-Purchase (3 emails)</p>
+                    <p><strong>Success Metric:</strong> 15%+ increase in automated revenue within 30 days</p>
+                </div>
+                
+                <div class="phase">
+                    <h4><span class="phase-number">2</span> Intelligence (Weeks 5-8)</h4>
+                    <p><strong>Priority:</strong> AI-powered personalization and advanced segmentation</p>
+                    <p><strong>Features:</strong> Dynamic content, predictive send times, advanced segmentation, conditional logic</p>
+                    <p><strong>Success Metric:</strong> 25%+ improvement in flow conversion rates</p>
+                </div>
+                
+                <div class="phase">
+                    <h4><span class="phase-number">3</span> Retention (Weeks 9-12)</h4>
+                    <p><strong>Priority:</strong> Customer lifecycle optimization and loyalty building</p>
+                    <p><strong>Flows:</strong> Advanced Post-Purchase (8 emails), Winback (5 emails), VIP Flow, Replenishment, Review flows</p>
+                    <p><strong>Success Metric:</strong> 20%+ increase in customer lifetime value</p>
+                </div>
+                
+                <div class="phase">
+                    <h4><span class="phase-number">4</span> Innovation (Weeks 13-16)</h4>
+                    <p><strong>Priority:</strong> Advanced 2025 features and omnichannel integration</p>
+                    <p><strong>Features:</strong> Quiz flows, Back-in-stock alerts, SMS coordination, Interactive elements, Advanced analytics</p>
+                    <p><strong>Success Metric:</strong> 40%+ total automated revenue increase from baseline</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Setup Section -->
+        <div id="technical" class="section">
+            <button class="back-button" onclick="showNavigation()">← Back to Overview</button>
+            <h2>⚙️ Technical Setup Requirements</h2>
+            
+            <div class="tech-req">
+                <h3>Core Platform Requirements</h3>
+                
+                <div class="tool-grid">
+                    <div class="tool-item">
+                        <div class="tool-name">Klaviyo Advanced</div>
+                        <div class="tool-purpose">AI features, advanced segmentation, multi-channel coordination</div>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-name">Shopify Plus/Magento</div>
+                        <div class="tool-purpose">Advanced e-commerce data synchronization</div>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-name">Malomo</div>
+                        <div class="tool-purpose">Enhanced shipping and tracking experience</div>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-name">Yotpo/Judge.me</div>
+                        <div class="tool-purpose">Review collection and display automation</div>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-name">Attentive/Postscript</div>
+                        <div class="tool-purpose">SMS coordination and cross-channel optimization</div>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-name">Google Analytics 4</div>
+                        <div class="tool-purpose">Advanced attribution and customer journey tracking</div>
+                    </div>
+                </div>
+                
+                <h3>AI & Advanced Features</h3>
+                
+                <div class="tool-grid">
+                    <div class="tool-item">
+                        <div class="tool-name">ChatGPT/Claude API</div>
+                        <div class="tool-purpose">Dynamic content generation and personalization</div>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-name">Lifetimely</div>
+                        <div class="tool-purpose">Advanced customer insights and predictive analytics</div>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-name">AMP for Email</div>
+                        <div class="tool-purpose">Interactive email elements and real-time content</div>
+                    </div>
+                    
+                    <div class="tool-item">
+                        <div class="tool-name">Loom/Wistia</div>
+                        <div class="tool-purpose">Personalized video messages and tutorials</div>
+                    </div>
+                </div>
+                
+                <h3>Custom Properties Setup</h3>
+                <ul>
+                    <li><strong>Behavioral Scoring:</strong> Engagement, purchase intent, churn risk scores</li>
+                    <li><strong>Preference Tracking:</strong> Communication frequency, content type, channel preferences</li>
+                    <li><strong>Lifecycle Stage:</strong> Automated customer journey stage identification</li>
+                    <li><strong>Value Segmentation:</strong> Dynamic LTV calculation and tier assignment</li>
+                    <li><strong>VIP Status:</strong> Boolean for VIP customer identification</li>
+                    <li><strong>Quiz Results:</strong> Personality type, style preferences, product recommendations</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide navigation
+            document.getElementById('navigation').style.display = 'none';
+            
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+        }
+        
+        function showNavigation() {
+            // Show navigation
+            document.getElementById('navigation').style.display = 'grid';
+            
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+        }
+        
+        // Initialize - show navigation by default
+        showNavigation();
+    </script>
+</body>
+</html>
